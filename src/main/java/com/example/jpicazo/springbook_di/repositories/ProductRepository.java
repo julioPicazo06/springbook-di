@@ -1,30 +1,12 @@
 package com.example.jpicazo.springbook_di.repositories;
 
-import com.example.jpicazo.springbook_di.models.Products;
-
-import java.util.Arrays;
 import java.util.List;
 
-public class ProductRepository {
+import com.example.jpicazo.springbook_di.models.Products;
 
-    private List<Products> data;
+public interface ProductRepository {
 
-    public ProductRepository() {
-        this.data = Arrays.asList(
-                new Products(1L, "Product 1", 100L),
-                new Products(2L, "Product 2", 200L),
-                new Products(3L, "Product 3", 300L),
-                new Products(4L, "Product 4", 400L),
-                new Products(5L, "Product 5", 500L),
-                new Products(0, "null", 0),
-                new Products(23L, "Product 23", 2300L));
-    }
+    List<Products> findAll();
 
-    public List<Products> findAll() {
-        return data;
-    }
-
-    public Products findById(long id) {
-        return data.stream().filter(p -> p.getId() == id).findFirst().orElse(null);
-    }
+    Products findById(Long id);
 }
