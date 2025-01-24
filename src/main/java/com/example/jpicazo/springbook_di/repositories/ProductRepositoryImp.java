@@ -5,6 +5,9 @@ import com.example.jpicazo.springbook_di.models.Products;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ProductRepositoryImp implements ProductRepository {
 
     private List<Products> data;
@@ -24,10 +27,14 @@ public class ProductRepositoryImp implements ProductRepository {
     public List<Products> findAll() {
         return data;
     }
-
+ 
     @Override
     public Products findById(Long id) {
-        return data.stream().filter(p -> p.getId() == id).findFirst().orElse(null);
+
+        return data.stream()
+                    .filter(p -> p.getId() == id )
+                    .findFirst()
+                    .orElse(null);
     }
 
 }

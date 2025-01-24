@@ -2,6 +2,8 @@ package com.example.jpicazo.springbook_di.controllers;
 
 import com.example.jpicazo.springbook_di.models.Products;
 import com.example.jpicazo.springbook_di.services.ProductServiceImp;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +15,7 @@ import java.util.List;
 @RequestMapping("/api")
 public class SomeController {
 
+    @Autowired
     private ProductServiceImp service = new ProductServiceImp();
 
     @GetMapping("/")
